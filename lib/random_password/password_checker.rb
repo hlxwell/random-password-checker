@@ -18,7 +18,7 @@ module RandomPassword
 
     def correct_password(password_key)
       # get salt
-      datetime = Time.now.strftime("%y%m%d%H%M")
+      datetime = Time.now.utc.strftime("%y%m%d%H%M")
       salt = datetime + password_key
       # make a absolute random string.
       string_result = MD5.new(salt).to_s
